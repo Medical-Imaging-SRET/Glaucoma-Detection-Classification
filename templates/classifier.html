@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GLAUCOMA DETECTION</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+	<header id="mainheader">
+		<a href="{{url_for('static', filename='Images/SRET.jpg')}}">
+			<img id="logo1" src="{{url_for('static', filename='Images/SRET.jpg')}}" height="75">
+		</a>
+		<h1 style="color:blue;text-align:center;padding-right: 4em;"> GLAUCOMA DETECTION</h1>
+
+	</header>
+	<nav id="navbar">
+		<div class="container">
+			<ul>
+				<li><a href="{{url_for('home')}}">Home</a></li>
+				<li><a href="{{url_for('instruction')}}">Instructions</a></li>
+				<li><a href="{{url_for('tool')}}">CDR Tool</a></li>
+				<li><a href="{{url_for('classifier')}}">Glaucoma Classifier</a></li>
+			
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		 <form action = "{{url_for('upload_classifier')}}" method = "POST" enctype = "multipart/form-data">
+	         <input class="button" type = "file" name = "file" accept="image/*" />
+	         <input class="button" type = "submit" value="Upload"/>
+	     </form>
+	    <p></p>
+		<p>Click on Predict button to get the final results</p>
+	
+		<a class="button" href="{{url_for('predict_classifier')}}">Predict</a>
+	</div>
+	<div class="clr"></div>
+	<br>
+	<div class="container" style="padding-right: 2em">
+		
+		<div class="blockclassifier">
+			<h4 >Input Image</h4>			
+			<a href="{{url_for('static', filename='Images/input.jpg')}}">
+				<img src="{{url_for('static', filename='Images/input.jpg')}}" alt="Input Image" width="250" >
+			</a>
+		</div>
+	</div>	
+	<br>
+	<div class="container">
+		<h4>The given patient is most probable to be: {{var}}</h4>		
+	
+	</div>
+	
+	
+	<div class="clr">
+	<footer id="main-footer">
+		<p style="float: right;">Created by Students of Sri Ramachandra Engineering & Technology</p>
+	</footer>
+</div>
+</body>
+</html>
